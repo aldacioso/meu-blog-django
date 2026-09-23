@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django Girls Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="/">Django Girls <span>Blog</span></a>
+            <p class="tagline">Ideias, aprendizados e histórias</p>
+        </div>
+    </header>
+
+    <main class="container">
+        {% for post in posts %}
+            <article class="post">
+                <time class="post-date" datetime="{{ post.published_date|date:'c' }}">
+                    {{ post.published_date|date:"d \d\e F \d\e Y" }}
+                </time>
+                <h2 class="post-title"><a href="">{{ post.title }}</a></h2>
+                <p class="post-author">por {{ post.author }}</p>
+                <div class="post-text">{{ post.text|linebreaksbr }}</div>
+            </article>
+        {% empty %}
+            <div class="empty">
+                <p>Nenhum post publicado ainda.</p>
+            </div>
+        {% endfor %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">Feito com Django 💜</div>
+    </footer>
+</body>
+</html>

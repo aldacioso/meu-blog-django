@@ -1,0 +1,142 @@
+:root {
+    --bg: #f7f6fb;
+    --surface: #ffffff;
+    --text: #1f1d2b;
+    --muted: #6b6880;
+    --accent: #7c3aed;
+    --accent-soft: #ede9fe;
+    --border: #e7e4f0;
+    --shadow: 0 1px 2px rgba(31, 29, 43, .04), 0 8px 24px rgba(31, 29, 43, .06);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14131b;
+        --surface: #1e1c28;
+        --text: #eceaf4;
+        --muted: #a09cb5;
+        --accent: #a78bfa;
+        --accent-soft: #2a2440;
+        --border: #2c2a38;
+        --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Cabeçalho */
+.site-header {
+    background: linear-gradient(135deg, #7c3aed, #db2777);
+    color: #fff;
+    padding: 56px 0 72px;
+    margin-bottom: -32px;
+}
+
+.logo {
+    font-family: "Lora", Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+}
+
+.logo span {
+    opacity: .75;
+}
+
+.tagline {
+    margin: 6px 0 0;
+    opacity: .85;
+}
+
+/* Posts */
+.post {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(124, 58, 237, .12);
+}
+
+.post-date {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: .8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.post-title {
+    font-family: "Lora", Georgia, serif;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin: 14px 0 4px;
+}
+
+.post-title a:hover {
+    color: var(--accent);
+}
+
+.post-author {
+    color: var(--muted);
+    font-size: .9rem;
+    margin: 0 0 16px;
+}
+
+.post-text {
+    color: var(--text);
+}
+
+.empty {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Rodapé */
+.site-footer {
+    color: var(--muted);
+    font-size: .85rem;
+    text-align: center;
+    padding: 40px 0;
+}
+
+@media (max-width: 600px) {
+    .site-header { padding: 40px 0 64px; }
+    .logo { font-size: 1.9rem; }
+    .post { padding: 22px; }
+    .post-title { font-size: 1.4rem; }
+}
